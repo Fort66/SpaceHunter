@@ -130,7 +130,7 @@ class Enemy(pg.sprite.Sprite):
         self.checkPosition()
         self.rotate() if not self.startExplosion else None
         self.move()
-        self.shots()
+        self.shots() if not self.startExplosion else None
         self.rect.center += self.direction * self.speed * self.game.deltaTime
         for value in self.posWeaponRot:
             value[0] += self.direction.x * self.speed * self.game.deltaTime
