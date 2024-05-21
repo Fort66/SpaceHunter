@@ -8,6 +8,7 @@ from classes.LevelsGame import LG
 from pygame.transform import rotozoom
 from source import enemiesSection
 from source import explosionSection
+ENEMIESSECTION = enemiesSection(LG.enemiesLevel)
 
 class Enemy(pg.sprite.Sprite):
     def __init__(self, 
@@ -18,20 +19,20 @@ class Enemy(pg.sprite.Sprite):
 
         self.game = game
         self.group = group
-        self.source = enemiesSection(LG.enemiesLevel)
-        self.size = self.source['size']
-        self.speed = self.source['speed']
-        self.speedBullet = self.source['speedBullet']
-        self. killBulletDistance = self.source['killBulletDistance']
-        self.shotsDistance = self.source['shotsDistance']
-        self.shotsFrequency = self.source['shotsFrequency']
-        self.explosionSize = self.source['explosionSize']
-        self.explosionImage = self.source['explosionImage']
-        if self.source['image']:
-            self.image = pg.transform.scale(pg.image.load(self.source['image']), self.size).convert_alpha()
+        # self.source = enemiesSection(LG.enemiesLevel)
+        self.size = ENEMIESSECTION['size']
+        self.speed = ENEMIESSECTION['speed']
+        self.speedBullet = ENEMIESSECTION['speedBullet']
+        self. killBulletDistance = ENEMIESSECTION['killBulletDistance']
+        self.shotsDistance = ENEMIESSECTION['shotsDistance']
+        self.shotsFrequency = ENEMIESSECTION['shotsFrequency']
+        self.explosionSize = ENEMIESSECTION['explosionSize']
+        self.explosionImage = ENEMIESSECTION['explosionImage']
+        if ENEMIESSECTION['image']:
+            self.image = pg.transform.scale(pg.image.load(ENEMIESSECTION['image']), self.size).convert_alpha()
         else:
             self.image = pg.Surface(self.size)
-            self.image.fill(self.source['color'])
+            self.image.fill(ENEMIESSECTION['color'])
         self.imageRot = self.image
         self.rect = self.imageRot.get_rect()
         # self.rect.center = (uniform(pos[0] + self.rect.size[0], pos.topright[0] - self.rect.size[0]), uniform(pos[1] + self.rect.size[1], pos.bottomright[1] - self.rect.size[1])) #
@@ -40,9 +41,9 @@ class Enemy(pg.sprite.Sprite):
         self.vector = Vector2(self.rect.center)
         self.angle = 0
         self.posWeapon = []
-        for value in self.source['weapons']:
+        for value in ENEMIESSECTION['weapons']:
             self.posWeapon.append([value[1][0], value[1][1]])
-        delattr(self, 'source')
+        # delattr(self, 'source')
         self.moveFrameCount = 0
         self.moveFrameMax = 600
         self.moveFrameFlag = False
