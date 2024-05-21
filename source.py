@@ -1,20 +1,20 @@
 def playersSection(level = 1):
     PLAYERS = {
                 1:
-                {'image': 'images/player.png',
+                {'image': 'images/player/player.png',
                 'weapons': [['gun0', (-30, 0)]],
                 'size': (60, 47),
                 'color': (255, 255, 255, 0),
                 'speed': .4,
                 'speedBullet': -.7,
-                'bulletImage': 'images/bullet.png',
+                'bulletImage': 'images/bullet/bullet.png',
                 'killBulletDistance': 1000,
                 'rotateSpeed': 10,
                 'explosion': 'images/explosion1.png',
                 'explosionSound': 'sounds/explosion.mp3',
                 'shohtsSound': 'sounds/playerShoot.mp3'},
                 2:
-                {'image': 'images/player1.png',
+                {'image': 'images/player/player1.png',
                     'weapons': [['gun0', (-30, 0)],
                                 ['gun1', (0, -18)],
                                 ['gun2', (0, 18)]],
@@ -22,7 +22,7 @@ def playersSection(level = 1):
                 'color': (255, 255, 255, 0),
                 'speed': .5,
                 'speedBullet': -.7,
-                'bulletImage': 'images/bullet.png',
+                'bulletImage': 'images/bullet/bullet.png',
                 'killBulletDistance': 1000,
                 'rotateSpeed': 10,
                 'explosion': 'images/explosion1.png',
@@ -36,22 +36,22 @@ def playersSection(level = 1):
 def enemiesSection(level = 1):
     ENEMIES = {
                 1:
-                {'image': 'images/enemy.png',
+                {'image': 'images/enemies/enemy.png',
                 'weapons': [['gun0', (18, 0)]],
                 'size': (36, 35),
                 'color': (139, 0, 0, 0),
                 'speed': .2,
                 'speedBullet': .4,
-                'bulletImage': 'images/bullet.png',
+                'bulletImage': 'images/bullet/bullet.png',
                 'killBulletDistance': 700,
-                'explosionImage': 'images/explosion1.png',
+                'explosionImage': 'images/enemies/explosion1.png',
                 'explosionSize': (100, 100),
                 'explosionSound': 'sounds/explosion.mp3',
                 'shohtsSound': 'sounds/enemyShoot.mp3',
                 'shotsDistance': 500,
                 'shotsFrequency': 50},
                2:
-                {'image': 'images/enemy1.png',
+                {'image': 'images/enemies/enemy1.png',
                 'weapons': [['gun1', (30, 15)],
                             ['gun2', (23, 10)],
                             ['gun3', (23, 20)]],
@@ -59,9 +59,9 @@ def enemiesSection(level = 1):
                 'color': (139, 0, 0, 0),
                 'speed': .2,
                 'speedBullet': .4,
-                'bulletImage': 'images/bullet.png',
+                'bulletImage': 'images/bullet/bullet.png',
                 'killBulletDistance': 700,
-                'explosionImage': 'images/explosion1.png',
+                'explosionImage': 'images/enemies/explosion1.png',
                 'explosionSize': (100, 100),
                 'explosionSound': 'sounds/explosion.mp3',
                 'shootsSound': 'sounds/enemyShoot.mp3',
@@ -76,7 +76,7 @@ def enemiesSection(level = 1):
 def bossSection(level = 1):
     BOSS = {
             1:
-            {'image': 'images/boss1.png',
+            {'image': 'images/enemies/boss1.png',
             'weapons': [['gun1', (27, 66)],
                         ['gun2', (25, 63)],
                         ['gun3', (29, 63)],
@@ -90,7 +90,7 @@ def bossSection(level = 1):
             'size': (55, 75),
             'speed': .5,
             'speedBullet': .8,
-            'bulletImage': 'images/bullet.png',
+            'bulletImage': 'images/bullet/bullet.png',
             'explosion': 'images/explosion1.png',
             'explosionSound': 'sounds/explosion.mp3',
             'shohtsSound': 'sounds/enemyShoot.mp3'},
@@ -178,3 +178,15 @@ def textSection(types = 'pauseScreen'):
             }
     return TEXT[types]
 
+
+def screenSection():
+    pass
+
+
+
+def screenGameSection():
+    SCREENGAME = {'size': (1024, 768),
+                  'fullscreen': False,
+                  'icon': 'images/enemies/boss2.png'
+                  }
+    return SCREENGAME

@@ -15,14 +15,16 @@ from classes.Collision import Collision
 from classes.SoundGame import SoundGame
 from classes.MiniMap import MiniMap
 from classes.InfoScreen import InfoScreen
+from source import screenGameSection
 
 
 class Game:
     def __init__(self):
         pg.init()
 
-        self.win = ScreenGame(size = (1024, 768),
-                              icon = 'images/boss2.png')
+        self.source = screenGameSection()
+        self.win = ScreenGame(size = self.source['size'],
+                              icon = self.source['icon'],)
         self.clock = pg.time.Clock()
         self.deltaTime = 1
         self.FPS = 100
@@ -36,6 +38,7 @@ class Game:
                                group = self.cameraGroup)
         self.infoScreen = InfoScreen(game = self, 
                                      group = self.cameraGroup)
+        delattr(self, 'source')
         pg.mouse.set_visible(False)
         pg.mouse.set_pos(self.win.screen.get_width() / 2, self.win.screen.get_height() / 2)
         pg.event.set_grab(True)

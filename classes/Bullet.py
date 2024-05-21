@@ -24,7 +24,7 @@ class Bullet(pg.sprite.Sprite):
         self.speed = speed
         self.shooter = shooter
         self.killBulletDistance = killBulletDistance
-        self.image = pg.transform.scale(pg.image.load('images/bullet.png').convert_alpha(), self.size)
+        self.image = pg.transform.scale(pg.image.load('images/bullet/bullet.png').convert_alpha(), self.size)
         self.imageRot = self.image
         self.imageRot = rotozoom(self.imageRot, -self.angle - 90, 1)
         self.rect = self.imageRot.get_rect(center = pos)
@@ -59,7 +59,7 @@ class Bullet(pg.sprite.Sprite):
         if pg.math.Vector2(self.rect.center).distance_to(self.oldShootCoordinate) >= self.killBulletDistance:
             self.game.sound.playExplosionBullet('sounds/explosionBullet.mp3')
             self.startExplosion = True
-            self.explosion(size = (25, 25), image = 'images/bullet_explosion1.png')
+            self.explosion(size = (25, 25), image = 'images/bullet/bullet_explosion1.png')
             if self.explosionCount == self.explosionFrameRate:
                 self.kill()
 

@@ -27,7 +27,7 @@ class Collision:
             if hits[0].startExplosion == False:
                 if hits[0].touch == False:
                     self.game.LG.playerLife -= 1
-                hits[0].explosion(size = (25, 25), image = 'images/bullet_explosion1.png')
+                hits[0].explosion(size = (25, 25), image = 'images/bullet/bullet_explosion1.png')
             if hits[0].explosionCount == hits[0].explosionFrameRate:
                 hits[0].kill()
 
@@ -53,6 +53,6 @@ class Collision:
             hits = list(collidedObjects)
             if hits[0].startExplosion == False:
                 # if hits[0].touch == False:
-                hits[0].explosion(size = (25, 25), image = 'images/bullet_explosion1.png')
+                hits[0].explosion(size = (25, 25), image = 'images/bullet/bullet_explosion1.png')
             if hits[0].explosionCount == hits[0].explosionFrameRate:
                 hits[0].kill()
