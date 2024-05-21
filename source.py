@@ -195,6 +195,10 @@ def screenSection():
 def screenGameSection():
     SCREENGAME = {'size': (1024, 768),
                   'fullscreen': False,
-                  'icon': 'images/enemies/boss2.png'
+                  'icon': 'images/enemies/boss2.png',
+                  'caption': 'Космический патруль',
                   }
     return SCREENGAME
+
+
+

@@ -1,4 +1,5 @@
 import pygame as pg
+from classes.ScreenGame import win
 from icecream import ic
 
 class MiniMap:
@@ -7,7 +8,7 @@ class MiniMap:
                  game = None): 
         self.game = game
         self.group = group
-        self.mapSize = (self.game.win.screen.get_width() / 4, self.game.win.screen.get_height() / 4)
+        self.mapSize = (win.screen.get_width() / 4, win.screen.get_height() / 4)
         self.mapSurface = pg.Surface(self.mapSize, pg.SRCALPHA)
         self.mapSurface.fill((0, 100, 0, 50))
         self.mapRect = self.mapSurface.get_rect()
@@ -41,6 +42,6 @@ class MiniMap:
         self.drawEnemy()
         self.drawPlayerBullet()
         self.drawEnemyBullet()
-        self.game.win.screen.blit(self.mapSurface, (self.game.win.screen.get_width() - self.mapSize[0], self.game.win.screen.get_height() - self.mapSize[1]))
+        win.screen.blit(self.mapSurface, (win.screen.get_width() - self.mapSize[0], win.screen.get_height() - self.mapSize[1]))
 
 

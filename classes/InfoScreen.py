@@ -1,4 +1,5 @@
 import pygame as pg
+from classes.ScreenGame import win
 from icecream import ic
 
 class InfoScreen:
@@ -8,7 +9,7 @@ class InfoScreen:
         
         self.game = game
         self.group = group
-        self.infoSize = (self.game.win.screen.get_width() - (self.game.win.screen.get_width() / 1.5), 50)
+        self.infoSize = (win.screen.get_width() - (win.screen.get_width() / 1.5), 50)
         self.font = pg.font.SysFont('arial', 16)
 
 
@@ -29,9 +30,9 @@ class InfoScreen:
 
     
     def update(self):
-        self.game.win.screen.blit(self.font.render(self.infoTextString1, True, 'SlateGrey'), (0, self.game.win.screen.get_height() - self.infoSize[1]))
+        win.screen.blit(self.font.render(self.infoTextString1, True, 'SlateGrey'), (0, win.screen.get_height() - self.infoSize[1]))
 
-        self.game.win.screen.blit(self.font.render(self.infoTextString2, True, 'SlateGrey'), (0, self.game.win.screen.get_height() - self.infoSize[1] / 2))
+        win.screen.blit(self.font.render(self.infoTextString2, True, 'SlateGrey'), (0, win.screen.get_height() - self.infoSize[1] / 2))
 
         
 

@@ -5,7 +5,7 @@ pg.mixer.pre_init(44100, -16, 2, 2048)
 import sys
 from icecream import ic
 
-from classes.ScreenGame import ScreenGame
+from classes.ScreenGame import win
 from classes.CameraGroup import CameraGroup
 from classes.Player import Player
 from classes.Enemy import Enemy
@@ -22,8 +22,8 @@ class Game:
         pg.init()
 
         self.source = screenGameSection()
-        self.win = ScreenGame(size = self.source['size'],
-                              icon = self.source['icon'],)
+        # self.win = ScreenGame(size = self.source['size'],
+        #                       icon = self.source['icon'],)
         self.clock = pg.time.Clock()
         self.deltaTime = 1
         self.FPS = 100
@@ -38,7 +38,7 @@ class Game:
                                      group = self.cameraGroup)
         delattr(self, 'source')
         pg.mouse.set_visible(False)
-        pg.mouse.set_pos(self.win.screen.get_width() / 2, self.win.screen.get_height() / 2)
+        pg.mouse.set_pos(win.screen.get_width() / 2, win.screen.get_height() / 2)
         # pg.event.set_grab(True)
         
     
@@ -59,7 +59,7 @@ class Game:
 
 
     def setup(self):
-        self.player = Player(pos = self.win.rect.center,
+        self.player = Player(pos = win.rect.center,
                              group = self.cameraGroup,
                              game = self)
         self.playersSpritesGroup.add(self.player)
@@ -96,7 +96,7 @@ class Game:
                                         bossLife = LG.bossLife,
                                         boss = False)
 
-            self.win.screen.fill('black')
+            win.screen.fill('black')
             self.cameraGroup.update()
             self.cameraGroup.customDraw(self.player)
             self.miniMap.update()
