@@ -12,7 +12,6 @@ from classes.Enemy import Enemy
 from classes.LevelsGame import LG
 from classes.CheckEvents import CheckEvents
 from classes.Collision import Collision
-from classes.SoundGame import SoundGame
 from classes.MiniMap import MiniMap
 from classes.InfoScreen import InfoScreen
 from source import screenGameSection
@@ -33,7 +32,6 @@ class Game:
         self.setup()
         self.checkEvents = CheckEvents(game = self)
         self.collision = Collision(game = self)
-        self.sound = SoundGame()
         self.miniMap = MiniMap(game = self, 
                                group = self.cameraGroup)
         self.infoScreen = InfoScreen(game = self, 

@@ -5,6 +5,7 @@ from icecream import ic
 from classes.Bullet import Bullet
 import math
 from classes.LevelsGame import LG
+from classes.SoundGame import soundGame
 from pygame.transform import rotozoom
 from source import enemiesSection
 from source import explosionSection
@@ -122,7 +123,7 @@ class Enemy(pg.sprite.Sprite):
                                         killBulletDistance = self.killBulletDistance
                                         )
                 self.game.enemiesBulletsGroup.add(enemy_bullet)
-                self.game.sound.enemyShots('sounds/enemy_shot.mp3')
+                soundGame.enemyShots('sounds/enemy_shot.mp3')
 
 
     def update(self):

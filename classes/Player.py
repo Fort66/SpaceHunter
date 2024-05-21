@@ -4,6 +4,7 @@ from pygame.transform import rotozoom
 from pygame.locals import *
 from classes.Bullet import Bullet
 from classes.LevelsGame import LG
+from classes.SoundGame import soundGame
 from source import playersSection
 from icecream import ic
 PLAYERSSECTION = playersSection(LG.playersLevel)
@@ -137,7 +138,7 @@ class Player(pg.sprite.Sprite):
                                     killBulletDistance = self.killBulletDistance
                                     )
             self.game.playersBulletsGroup.add(player_bullet)
-            self.game.sound.playerShots('sounds/player_shot.mp3')
+            soundGame.playerShots('sounds/player_shot.mp3')
 
 
     def update(self):

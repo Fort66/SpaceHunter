@@ -1,6 +1,7 @@
 import pygame as pg
 from pygame.math import Vector2
 from pygame.transform import rotozoom
+from classes.SoundGame import soundGame
 from icecream import ic
 
 class Bullet(pg.sprite.Sprite):
@@ -57,7 +58,7 @@ class Bullet(pg.sprite.Sprite):
 
     def checkPosition(self):
         if pg.math.Vector2(self.rect.center).distance_to(self.oldShootCoordinate) >= self.killBulletDistance:
-            self.game.sound.playExplosionBullet('sounds/explosionBullet.mp3')
+            soundGame.playExplosionBullet('sounds/explosionBullet.mp3')
             self.startExplosion = True
             self.explosion(size = (25, 25), image = 'images/explosion/bulletExplosion.png')
             if self.explosionCount == self.explosionFrameRate:

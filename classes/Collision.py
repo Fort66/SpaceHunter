@@ -1,5 +1,6 @@
 import pygame as pg
 from classes.LevelsGame import LG
+from classes.SoundGame import soundGame
 
 class Collision:
     def __init__(self, 
@@ -9,7 +10,7 @@ class Collision:
     def killObjects(self):
         collidedObjects = pg.sprite.groupcollide(self.game.enemiesSpritesGroup, self.game.playersBulletsGroup, False, True)
         if collidedObjects:
-            self.game.sound.play_explosion('sounds/explosion.mp3')
+            soundGame.playExplosion('sounds/explosion.mp3')
             hits = list(collidedObjects)
             if hits[0].startExplosion == False:
                 if hits[0].touch == False:
@@ -23,7 +24,7 @@ class Collision:
 
         collidedObjects = pg.sprite.groupcollide(self.game.enemiesBulletsGroup, self.game.playersSpritesGroup, False, False)
         if collidedObjects:
-            self.game.sound.playExplosionBullet('sounds/explosionBullet.mp3')
+            soundGame.playExplosionBullet('sounds/explosionBullet.mp3')
             hits = list(collidedObjects)
             if hits[0].startExplosion == False:
                 if hits[0].touch == False:
@@ -35,7 +36,7 @@ class Collision:
 
         collidedObjects = pg.sprite.groupcollide(self.game.enemiesSpritesGroup, self.game.playersSpritesGroup, False, False)
         if collidedObjects:
-            self.game.sound.play_explosion('sounds/explosion.mp3')
+            soundGame.playExplosion('sounds/explosion.mp3')
             hits = list(collidedObjects)
             if hits[0].startExplosion == False:
                 if hits[0].touch == False:
@@ -50,7 +51,7 @@ class Collision:
 
         collidedObjects = pg.sprite.groupcollide(self.game.enemiesBulletsGroup, self.game.playersBulletsGroup, False, True)
         if collidedObjects:
-            self.game.sound.playExplosionBullet('sounds/explosionBullet.mp3')
+            soundGame.playExplosionBullet('sounds/explosionBullet.mp3')
             hits = list(collidedObjects)
             if hits[0].startExplosion == False:
                 # if hits[0].touch == False:

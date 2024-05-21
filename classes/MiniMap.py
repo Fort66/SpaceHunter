@@ -42,3 +42,5 @@ class MiniMap:
         self.drawPlayerBullet()
         self.drawEnemyBullet()
         self.game.win.screen.blit(self.mapSurface, (self.game.win.screen.get_width() - self.mapSize[0], self.game.win.screen.get_height() - self.mapSize[1]))
+
+

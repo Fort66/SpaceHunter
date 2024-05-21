@@ -4,7 +4,7 @@ class SoundGame:
     def __init__(self):
         self.background = None
 
-    def play_backgroound(self, background = None):
+    def playBackgroound(self, background = None):
         if background:
             self.background = pg.mixer.music.load(background)
             pg.mixer.music.set_volume(0.2)
@@ -25,7 +25,7 @@ class SoundGame:
             self.enemy_shot_sound = pg.mixer.Sound(sound)
             channel1.play(self.enemy_shot_sound)
 
-    def play_explosion(self, sound = None):
+    def playExplosion(self, sound = None):
         if sound:
             channel2 = pg.mixer.Channel(2)
             channel2.set_volume(0.25)
@@ -38,3 +38,6 @@ class SoundGame:
             channel3.set_volume(0.03)
             self.explosion_sound = pg.mixer.Sound(sound)
             channel3.play(self.explosion_sound)
+
+
+soundGame = SoundGame()
