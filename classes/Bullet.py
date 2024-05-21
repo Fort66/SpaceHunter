@@ -14,7 +14,8 @@ class Bullet(pg.sprite.Sprite):
                 speed = 0,
                 angle = 0,
                 shooter = None,
-                killBulletDistance = None):
+                killBulletDistance = None,
+                image  = None):
         super().__init__(group)
 
         self.game = game
@@ -25,7 +26,7 @@ class Bullet(pg.sprite.Sprite):
         self.speed = speed
         self.shooter = shooter
         self.killBulletDistance = killBulletDistance
-        self.image = pg.transform.scale(pg.image.load('images/bullet/bullet.png').convert_alpha(), self.size)
+        self.image = pg.transform.scale(pg.image.load(image).convert_alpha(), self.size)
         self.imageRot = self.image
         self.imageRot = rotozoom(self.imageRot, -self.angle - 90, 1)
         self.rect = self.imageRot.get_rect(center = pos)

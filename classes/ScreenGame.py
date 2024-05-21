@@ -6,7 +6,6 @@ class ScreenGame:
     def __init__(self, 
                  size = SCREENGAMESECTION['size'],
                  icon = SCREENGAMESECTION['icon'],
-                 caption = SCREENGAMESECTION['caption'],
                  ):
         if SCREENGAMESECTION['fullscreen']:
             self.screen = pg.display.set_mode(size, pg.FULLSCREEN)
@@ -15,6 +14,9 @@ class ScreenGame:
         self.icon = pg.display.set_icon(pg.image.load(icon))
         self.caption = pg.display.set_caption(SCREENGAMESECTION['caption'])
         self.rect = self.screen.get_rect()
+
+    # def update(self):
+    #     pg.display.update()
 
 win = ScreenGame()
     

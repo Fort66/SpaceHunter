@@ -6,8 +6,11 @@ from classes.Bullet import Bullet
 from classes.LevelsGame import LG
 from classes.SoundGame import soundGame
 from source import playersSection
+from source import bulletSection
 from icecream import ic
 PLAYERSSECTION = playersSection(LG.playersLevel)
+BULLETSECTION = bulletSection()
+
 
 class Player(pg.sprite.Sprite):
     def __init__(self, 
@@ -135,7 +138,8 @@ class Player(pg.sprite.Sprite):
                                     speed = self.speedBullet,
                                     angle = self.angle,
                                     shooter = self,
-                                    killBulletDistance = self.killBulletDistance
+                                    killBulletDistance = self.killBulletDistance,
+                                    image = BULLETSECTION[1]
                                     )
             self.game.playersBulletsGroup.add(player_bullet)
             soundGame.playerShots('sounds/player_shot.mp3')

@@ -8,8 +8,10 @@ from classes.LevelsGame import LG
 from classes.SoundGame import soundGame
 from pygame.transform import rotozoom
 from source import enemiesSection
+from source import bulletSection
 from source import explosionSection
 ENEMIESSECTION = enemiesSection(LG.enemiesLevel)
+BULLETSECTION  = bulletSection()
 
 class Enemy(pg.sprite.Sprite):
     def __init__(self, 
@@ -120,7 +122,8 @@ class Enemy(pg.sprite.Sprite):
                                         speed = self.speedBullet,
                                         angle = self.angle,
                                         shooter = self,
-                                        killBulletDistance = self.killBulletDistance
+                                        killBulletDistance = self.killBulletDistance,
+                                        image = BULLETSECTION[2]
                                         )
                 self.game.enemiesBulletsGroup.add(enemy_bullet)
                 soundGame.enemyShots('sounds/enemy_shot.mp3')

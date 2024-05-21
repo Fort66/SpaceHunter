@@ -108,14 +108,12 @@ def bossSection(level = 1):
     return BOSS[level]
 
 
-# def bulletSection(level = 1):
-#     BULLET = {
-#               1:
-#                 {'killBulletDistance': 2000,},
-#               2:
-#                 {'killBulletDistance': 2000,},
-#              }
-#     return BULLET[level]
+def bulletSection():
+    BULLET = {
+              1: 'images/bullet/bullet.png',
+              2: 'images/bullet/bullet1.png',
+             }
+    return BULLET
 
 
 def backgroundSection(level = 1):
