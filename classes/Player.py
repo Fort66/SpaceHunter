@@ -17,12 +17,11 @@ class Player(pg.sprite.Sprite):
 
         self.game = game
         self.group = group
-        # self.source = playersSection(self.game.LG.playersLevel)
-        self.size = PLAYERSSECTION['size'] #self.source['size']
-        self.speed = PLAYERSSECTION['speed'] #self.source['speed']
-        self.speedBullet = PLAYERSSECTION['speedBullet'] #self.source['speedBullet']
-        self.killBulletDistance = PLAYERSSECTION['killBulletDistance'] #self.source['killBulletDistance']
-        if PLAYERSSECTION['image']: #self.source['image']:
+        self.size = PLAYERSSECTION['size']
+        self.speed = PLAYERSSECTION['speed']
+        self.speedBullet = PLAYERSSECTION['speedBullet']
+        self.killBulletDistance = PLAYERSSECTION['killBulletDistance']
+        if PLAYERSSECTION['image']:
             self.image = pg.transform.scale(pg.image.load(PLAYERSSECTION['image']), self.size).convert_alpha()
         else:
             self.image = pg.Surface(self.size)
@@ -35,7 +34,6 @@ class Player(pg.sprite.Sprite):
         self.posWeapon = []
         for value in PLAYERSSECTION['weapons']:
             self.posWeapon.append([value[1][0], value[1][1]])
-        # delattr(self, 'source')
         self.moveLeft = True
         self.moveRight = True
         self.moveUp = True

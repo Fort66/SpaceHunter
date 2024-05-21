@@ -19,7 +19,6 @@ class Enemy(pg.sprite.Sprite):
 
         self.game = game
         self.group = group
-        # self.source = enemiesSection(LG.enemiesLevel)
         self.size = ENEMIESSECTION['size']
         self.speed = ENEMIESSECTION['speed']
         self.speedBullet = ENEMIESSECTION['speedBullet']
@@ -35,7 +34,6 @@ class Enemy(pg.sprite.Sprite):
             self.image.fill(ENEMIESSECTION['color'])
         self.imageRot = self.image
         self.rect = self.imageRot.get_rect()
-        # self.rect.center = (uniform(pos[0] + self.rect.size[0], pos.topright[0] - self.rect.size[0]), uniform(pos[1] + self.rect.size[1], pos.bottomright[1] - self.rect.size[1])) #
         self.rect.center = (uniform(pos[0] + 200, pos[2] - 200), uniform(pos[1] + 200, pos[3] - 200))
         self.direction = Vector2()
         self.vector = Vector2(self.rect.center)
