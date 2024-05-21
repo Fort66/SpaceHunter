@@ -9,7 +9,7 @@ from classes.ScreenGame import ScreenGame
 from classes.CameraGroup import CameraGroup
 from classes.Player import Player
 from classes.Enemy import Enemy
-from classes.LevelsGame import LevelsGame
+from classes.LevelsGame import LG
 from classes.CheckEvents import CheckEvents
 from classes.Collision import Collision
 from classes.SoundGame import SoundGame
@@ -28,7 +28,7 @@ class Game:
         self.clock = pg.time.Clock()
         self.deltaTime = 1
         self.FPS = 100
-        self.LG = LevelsGame()
+        # self.LG = LevelsGame()
         self.spritesGroups()
         self.setup()
         self.checkEvents = CheckEvents(game = self)
@@ -41,7 +41,7 @@ class Game:
         delattr(self, 'source')
         pg.mouse.set_visible(False)
         pg.mouse.set_pos(self.win.screen.get_width() / 2, self.win.screen.get_height() / 2)
-        pg.event.set_grab(True)
+        # pg.event.set_grab(True)
         
     
     def spritesGroups(self):
@@ -66,7 +66,7 @@ class Game:
                              game = self)
         self.playersSpritesGroup.add(self.player)
 
-        for _ in range(self.LG.enemies if not self.LG.bossFlag else 1):
+        for _ in range(LG.enemies if not LG.bossFlag else 1):
             self.enemy = Enemy(pos = self.cameraGroup.backgroundSurface.get_rect(),
                                group = self.cameraGroup,
                                game = self)
@@ -86,16 +86,16 @@ class Game:
                 self.player.kill()
                 self.playersSpritesGroup.empty()
                 self.enemiesSpritesGroup.empty()
-                self.LG.countingData()
+                LG.countingData()
                 self.cameraGroup.setBackground()
                 self.setup()
 
 
-            self.infoScreen.setInfoGame(score = self.LG.score,
-                                        playerLife = self.LG.playerLife,
-                                        globalLevel = self.LG.globalLevel,
-                                        currentLevel = self.LG.currentLevel,
-                                        bossLife = self.LG.bossLife,
+            self.infoScreen.setInfoGame(score = LG.score,
+                                        playerLife = LG.playerLife,
+                                        globalLevel = LG.globalLevel,
+                                        currentLevel = LG.currentLevel,
+                                        bossLife = LG.bossLife,
                                         boss = False)
 
             self.win.screen.fill('black')

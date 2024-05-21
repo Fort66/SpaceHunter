@@ -4,8 +4,10 @@ from random import uniform, choice, randint
 from icecream import ic
 from classes.Bullet import Bullet
 import math
+from classes.LevelsGame import LG
 from pygame.transform import rotozoom
 from source import enemiesSection
+from source import explosionSection
 
 class Enemy(pg.sprite.Sprite):
     def __init__(self, 
@@ -16,7 +18,7 @@ class Enemy(pg.sprite.Sprite):
 
         self.game = game
         self.group = group
-        self.source = enemiesSection(self.game.LG.enemiesLevel)
+        self.source = enemiesSection(LG.enemiesLevel)
         self.size = self.source['size']
         self.speed = self.source['speed']
         self.speedBullet = self.source['speedBullet']
@@ -48,7 +50,7 @@ class Enemy(pg.sprite.Sprite):
         self.startExplosion = False
         self.touch = False
         self.explosionCount = 0
-        self.explosionFrameRate = 20
+        self.explosionFrameRate = 80
 
 
     def explosion(self):
@@ -135,5 +137,8 @@ class Enemy(pg.sprite.Sprite):
             value[1] += self.direction.y * self.speed * self.game.deltaTime
         if self.startExplosion:
             self.explosionCount += 1
+            if self.explosionCount >= self.explosionFrameRate // 2:
+                self.explosionImage = 'images/explosion/smoke.png'
+                self.explosion()
         if self.explosionCount == self.explosionFrameRate:
             self.kill()

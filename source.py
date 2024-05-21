@@ -10,7 +10,7 @@ def playersSection(level = 1):
                 'bulletImage': 'images/bullet/bullet.png',
                 'killBulletDistance': 1000,
                 'rotateSpeed': 10,
-                'explosion': 'images/explosion1.png',
+                'explosion': 'images/explosion/explosion1.png',
                 'explosionSound': 'sounds/explosion.mp3',
                 'shohtsSound': 'sounds/playerShoot.mp3'},
                 2:
@@ -25,7 +25,7 @@ def playersSection(level = 1):
                 'bulletImage': 'images/bullet/bullet.png',
                 'killBulletDistance': 1000,
                 'rotateSpeed': 10,
-                'explosion': 'images/explosion1.png',
+                'explosion': 'images/explosion/explosion1.png',
                 'explosionSound': 'sounds/explosion.mp3',
                 'shootsSound': 'sounds/playerShoot.mp3'},
                 }
@@ -44,7 +44,7 @@ def enemiesSection(level = 1):
                 'speedBullet': .4,
                 'bulletImage': 'images/bullet/bullet.png',
                 'killBulletDistance': 700,
-                'explosionImage': 'images/enemies/explosion1.png',
+                'explosionImage': 'images/explosion/explosion.png',
                 'explosionSize': (100, 100),
                 'explosionSound': 'sounds/explosion.mp3',
                 'shohtsSound': 'sounds/enemyShoot.mp3',
@@ -61,7 +61,7 @@ def enemiesSection(level = 1):
                 'speedBullet': .4,
                 'bulletImage': 'images/bullet/bullet.png',
                 'killBulletDistance': 700,
-                'explosionImage': 'images/enemies/explosion1.png',
+                'explosionImage': 'images/explosion/explosion.png',
                 'explosionSize': (100, 100),
                 'explosionSound': 'sounds/explosion.mp3',
                 'shootsSound': 'sounds/enemyShoot.mp3',
@@ -91,7 +91,7 @@ def bossSection(level = 1):
             'speed': .5,
             'speedBullet': .8,
             'bulletImage': 'images/bullet/bullet.png',
-            'explosion': 'images/explosion1.png',
+            'explosion': 'images/explosionexplosion.png',
             'explosionSound': 'sounds/explosion.mp3',
             'shohtsSound': 'sounds/enemyShoot.mp3'},
                 # 2:
@@ -145,6 +145,14 @@ def backgroundSection(level = 1):
                     }
     return GALAXYSECTOR[level]
 # self.backgrounds =  {1: 'images/background.png'}
+
+
+def explosionSection():
+    EXPLOSION = {
+                 'ships': 'images/explosion/explosion.png',
+                 'bullets': 'images/explosion/bulletExplosion.png',
+                }
+
 
 
 

@@ -3,6 +3,7 @@ from pygame.locals import *
 from pygame.math import Vector2
 from source import *
 from icecream import ic
+from classes.LevelsGame import LG
 from source import backgroundSection
 
 class CameraGroup(pg.sprite.Group):
@@ -22,7 +23,7 @@ class CameraGroup(pg.sprite.Group):
 
     
     def setBackground(self):
-        self.source = backgroundSection(self.game.LG.currentLevel)
+        self.source = backgroundSection(LG.currentLevel)
         self.backgroundSurface = pg.image.load(self.source).convert_alpha()
         # self.backgroundRect = self.backgroundSurface.get_rect(center = self.half)
         self.backgroundRect = self.backgroundSurface.get_rect()

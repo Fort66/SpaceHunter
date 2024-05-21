@@ -1,4 +1,5 @@
 import pygame as pg
+from classes.LevelsGame import LG
 
 class Collision:
     def __init__(self, 
@@ -12,9 +13,9 @@ class Collision:
             hits = list(collidedObjects)
             if hits[0].startExplosion == False:
                 if hits[0].touch == False:
-                    self.game.LG.score += 1 if not self.game.LG.bossFlag else 0
-                    if self.game.LG.bossFlag:
-                        self.game.LG.bossLife -= 1
+                    LG.score += 1 if not LG.bossFlag else 0
+                    if LG.bossFlag:
+                        LG.bossLife -= 1
                 hits[0].explosion()
             if hits[0].explosionCount == hits[0].explosionFrameRate:
                 hits[0].kill()
@@ -26,8 +27,8 @@ class Collision:
             hits = list(collidedObjects)
             if hits[0].startExplosion == False:
                 if hits[0].touch == False:
-                    self.game.LG.playerLife -= 1
-                hits[0].explosion(size = (25, 25), image = 'images/bullet/bullet_explosion1.png')
+                    LG.playerLife -= 1
+                hits[0].explosion(size = (25, 25), image = 'images/explosion/bulletExplosion.png')
             if hits[0].explosionCount == hits[0].explosionFrameRate:
                 hits[0].kill()
 
@@ -38,10 +39,10 @@ class Collision:
             hits = list(collidedObjects)
             if hits[0].startExplosion == False:
                 if hits[0].touch == False:
-                    self.game.LG.score += 1 if not self.game.LG.bossFlag else 0
-                    self.game.LG.playerLife -= 1
-                    if self.game.LG.bossFlag:
-                        self.game.LG.bossLife -= 1
+                    LG.score += 1 if not LG.bossFlag else 0
+                    LG.playerLife -= 1
+                    if LG.bossFlag:
+                        LG.bossLife -= 1
                 hits[0].explosion()
             if hits[0].explosionCount == hits[0].explosionFrameRate:
                 hits[0].kill()
@@ -53,6 +54,6 @@ class Collision:
             hits = list(collidedObjects)
             if hits[0].startExplosion == False:
                 # if hits[0].touch == False:
-                hits[0].explosion(size = (25, 25), image = 'images/bullet/bullet_explosion1.png')
+                hits[0].explosion(size = (25, 25), image = 'images/explosion/bulletExplosion.png')
             if hits[0].explosionCount == hits[0].explosionFrameRate:
                 hits[0].kill()

@@ -3,8 +3,10 @@ from pygame.math import Vector2
 from pygame.transform import rotozoom
 from pygame.locals import *
 from classes.Bullet import Bullet
+from classes.LevelsGame import LG
 from source import playersSection
 from icecream import ic
+PLAYERSSECTION = playersSection(LG.playersLevel)
 
 class Player(pg.sprite.Sprite):
     def __init__(self, 
@@ -15,25 +17,25 @@ class Player(pg.sprite.Sprite):
 
         self.game = game
         self.group = group
-        self.source = playersSection(self.game.LG.playersLevel)
-        self.size = self.source['size']
-        self.speed = self.source['speed']
-        self.speedBullet = self.source['speedBullet']
-        self.killBulletDistance = self.source['killBulletDistance']
-        if self.source['image']:
-            self.image = pg.transform.scale(pg.image.load(self.source['image']), self.size).convert_alpha()
+        # self.source = playersSection(self.game.LG.playersLevel)
+        self.size = PLAYERSSECTION['size'] #self.source['size']
+        self.speed = PLAYERSSECTION['speed'] #self.source['speed']
+        self.speedBullet = PLAYERSSECTION['speedBullet'] #self.source['speedBullet']
+        self.killBulletDistance = PLAYERSSECTION['killBulletDistance'] #self.source['killBulletDistance']
+        if PLAYERSSECTION['image']: #self.source['image']:
+            self.image = pg.transform.scale(pg.image.load(PLAYERSSECTION['image']), self.size).convert_alpha()
         else:
             self.image = pg.Surface(self.size)
-            self.image.fill(self.source['color'])
+            self.image.fill(PLAYERSSECTION['color'])
         self.imageRot = self.image
         self.rect = self.imageRot.get_rect(center = pos)
         self.direction = Vector2()
         self.vector = Vector2(self.rect.center)
         self.angle = 0
         self.posWeapon = []
-        for value in self.source['weapons']:
+        for value in PLAYERSSECTION['weapons']:
             self.posWeapon.append([value[1][0], value[1][1]])
-        delattr(self, 'source')
+        # delattr(self, 'source')
         self.moveLeft = True
         self.moveRight = True
         self.moveUp = True

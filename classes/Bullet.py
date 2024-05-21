@@ -59,7 +59,7 @@ class Bullet(pg.sprite.Sprite):
         if pg.math.Vector2(self.rect.center).distance_to(self.oldShootCoordinate) >= self.killBulletDistance:
             self.game.sound.playExplosionBullet('sounds/explosionBullet.mp3')
             self.startExplosion = True
-            self.explosion(size = (25, 25), image = 'images/bullet/bullet_explosion1.png')
+            self.explosion(size = (25, 25), image = 'images/explosion/bulletExplosion.png')
             if self.explosionCount == self.explosionFrameRate:
                 self.kill()
 

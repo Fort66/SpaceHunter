@@ -73,3 +73,6 @@ class LevelsGame:
         self.bossFlag = False
         
         self.galaxySector = 1
+
+
+LG = LevelsGame()
